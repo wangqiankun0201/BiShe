@@ -4,7 +4,7 @@ from PySide2.QtGui import  QIcon
 import math
 import os
 import xlwt
-from numpy import double
+
 
 class Stats:
 
@@ -58,6 +58,7 @@ class Stats:
         self.ui.pushButton_4.clicked.connect(self.jiYongLiang)
         self.ui.pushButton_5.clicked.connect(self.daoChu)
         self.ui.buttonGroup_2.buttonClicked.connect(self.lieWen)
+
     #判断埋地方式
     def maiDi(self):
         maidi = self.ui.comboBox.currentText()
@@ -86,18 +87,18 @@ class Stats:
     #计算总荷载
     def heZai(self):
         #获取参数值
-        goucaokuan = double(self.ui.lineEdit_19.text())
-        rongzhong = double(self.ui.lineEdit_17.text())
-        tushen = double(self.ui.lineEdit_16.text())
-        tianjiao = double(self.ui.lineEdit_18.text())
-        cejiao = double(self.ui.lineEdit_9.text())
-        guanjing = double(self.ui.lineEdit_10.text())
-        shuishen = double(self.ui.lineEdit_13.text())
-        danya = double(self.ui.lineEdit_21.text())
-        chechang = double(self.ui.lineEdit_23.text())
-        chekuan = double(self.ui.lineEdit_22.text())
-        dongli = double(self.ui.lineEdit_24.text())
-        zhenkong = double(self.ui.lineEdit_3.text())
+        goucaokuan = float(self.ui.lineEdit_19.text())
+        rongzhong = float(self.ui.lineEdit_17.text())
+        tushen = float(self.ui.lineEdit_16.text())
+        tianjiao = float(self.ui.lineEdit_18.text())
+        cejiao = float(self.ui.lineEdit_9.text())
+        guanjing = float(self.ui.lineEdit_10.text())
+        shuishen = float(self.ui.lineEdit_13.text())
+        danya = float(self.ui.lineEdit_21.text())
+        chechang = float(self.ui.lineEdit_23.text())
+        chekuan = float(self.ui.lineEdit_22.text())
+        dongli = float(self.ui.lineEdit_24.text())
+        zhenkong = float(self.ui.lineEdit_3.text())
         #根据埋地方式选择土压力计算方法
         if self.ui.comboBox.currentText() == "沟埋式管道":
             tu_1 = (rongzhong*goucaokuan*goucaokuan/(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)))* \
@@ -105,8 +106,8 @@ class Stats:
             tu_2 =(guanjing*(1+math.tan(45-cejiao/2)))*rongzhong*guanjing*(1-math.e**(-2*0.9*tushen/(guanjing*(1+math.tan(45-cejiao/2)))))/1.8
             tuyali = max(tu_1,tu_2)
         else:
-            dengchen = double(self.ui.lineEdit_15.text())
-            nianju = double(self.ui.lineEdit_7.text())
+            dengchen = float(self.ui.lineEdit_15.text())
+            nianju = float(self.ui.lineEdit_7.text())
             if tushen <= dengchen:
                 tu_1 = (rongzhong*guanjing*guanjing/(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)))*(math.e**(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)*tushen/guanjing)-1)
                 tu_2 = rongzhong*tushen*guanjing + rongzhong*tushen*tushen*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2) + 2*nianju*(1-2*math.sqrt(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2))*tushen
@@ -124,8 +125,8 @@ class Stats:
         if self.ui.buttonGroup.checkedButton().text() == "单轮":
             cheya = (danya * dongli)/((chechang+1.4*tushen)*(chekuan+1.4*tushen))/1000
         else:
-            zongliang = double(self.ui.lineEdit_25.text())
-            jingju = double(self.ui.lineEdit_20.text())
+            zongliang = float(self.ui.lineEdit_25.text())
+            jingju = float(self.ui.lineEdit_20.text())
             cheya = (danya*dongli*zongliang)/((chechang+1.4*tushen)*(zongliang*chekuan+(zongliang-1)*jingju+1.4*tushen))/1000
         
         zongyali = tuyali + jingye +cheya + zhenkong + 10
@@ -149,18 +150,18 @@ class Stats:
             self.ui.lineEdit_6.setVisible(False)
     #内衬壁厚设计
     def houDu(self):
-        neijing = double(self.ui.lineEdit.text())
-        changqi = double(self.ui.lineEdit_8.text())
+        neijing = float(self.ui.lineEdit.text())
+        changqi = float(self.ui.lineEdit_8.text())
         if self.ui.comboBox_2.currentText() == "半结构性修复设计":
-            bosong = double(self.ui.lineEdit_4.text())
-            zhenkong = double(self.ui.lineEdit_3.text())
-            shuishen = double(self.ui.lineEdit_13.text())
+            bosong = float(self.ui.lineEdit_4.text())
+            zhenkong = float(self.ui.lineEdit_3.text())
+            shuishen = float(self.ui.lineEdit_13.text())
             zuixiao = neijing/((14*changqi/(zhenkong+shuishen*0.0981)*2*(1-bosong**2))**(1/3)+1)
             self.ui.lineEdit_37.setText(str(zuixiao))
         else:
-            duanqi = double(self.ui.lineEdit_6.text())
-            zonghe = double(self.ui.lineEdit_5.text())
-            zuixiao = 0.721*neijing*(((2*double(self.ui.lineEdit_34.text()))**2)/(changqi*(1-0.33*double(self.ui.lineEdit_13.text())/double(self.ui.lineEdit_16.text()))*zonghe*(1/(1+4*math.e**(-0.213*double(self.ui.lineEdit_16.text()))))))**(1/3)
+            duanqi = float(self.ui.lineEdit_6.text())
+            zonghe = float(self.ui.lineEdit_5.text())
+            zuixiao = 0.721*neijing*(((2*float(self.ui.lineEdit_34.text()))**2)/(changqi*(1-0.33*float(self.ui.lineEdit_13.text())/float(self.ui.lineEdit_16.text()))*zonghe*(1/(1+4*math.e**(-0.213*float(self.ui.lineEdit_16.text()))))))**(1/3)
             if zuixiao >= (0.1970*neijing/(duanqi)**(1/3)):
                 self.ui.lineEdit_37.setText(str(zuixiao))
             else:
@@ -168,9 +169,9 @@ class Stats:
         
     #计算涂料用量
     def jiYongLiang(self):
-        neijing = double(self.ui.lineEdit.text())
-        changdu = double(self.ui.lineEdit_2.text()) 
-        bihou = double(self.ui.lineEdit_35.text())
+        neijing = float(self.ui.lineEdit.text())
+        changdu = float(self.ui.lineEdit_2.text()) 
+        bihou = float(self.ui.lineEdit_35.text())
         yongliang = changdu * (math.pi*neijing*neijing-math.pi*(neijing-bihou)**2)/1000000
         self.ui.lineEdit_38.setText(str(yongliang))
     #缺陷判断
@@ -274,21 +275,21 @@ class Stats:
     def shengYu(self):
         #腐蚀缺陷管道
         if self.ui.comboBox_3.currentText() == "腐蚀缺陷":
-            guanhou = double(self.ui.lineEdit_12.text())
-            qufu = double(self.ui.lineEdit_14.text())
-            quechang = double(self.ui.lineEdit_29.text())
-            zhouhe = double(self.ui.lineEdit_33.text())
-            huankang = double(self.ui.lineEdit_28.text())
-            huanying = double(self.ui.lineEdit_27.text())
-            neimo = double(self.ui.lineEdit_36.text())
-            junyun = double(self.ui.lineEdit_11.text())
+            guanhou = float(self.ui.lineEdit_12.text())
+            qufu = float(self.ui.lineEdit_14.text())
+            quechang = float(self.ui.lineEdit_29.text())
+            zhouhe = float(self.ui.lineEdit_33.text())
+            huankang = float(self.ui.lineEdit_28.text())
+            huanying = float(self.ui.lineEdit_27.text())
+            neimo = float(self.ui.lineEdit_36.text())
+            junyun = float(self.ui.lineEdit_11.text())
             #旧管道轴向应力计算
-            jiuzhouxiang = (1*double(self.ui.lineEdit.text())/(4*junyun))*(huankang*2*guanhou/(double(self.ui.lineEdit_10.text())-guanhou))+(double(self.ui.lineEdit_4.text())*zhouhe/(math.pi*double(self.ui.lineEdit.text())*junyun))*1000
+            jiuzhouxiang = (1*float(self.ui.lineEdit.text())/(4*junyun))*(huankang*2*guanhou/(float(self.ui.lineEdit_10.text())-guanhou))+(float(self.ui.lineEdit_4.text())*zhouhe/(math.pi*float(self.ui.lineEdit.text())*junyun))*1000
             #旧管道环向应力计算
-            if quechang*quechang <= 50*double(self.ui.lineEdit.text())*guanhou:
-                m = (1+(0.6275*quechang*quechang/(double(self.ui.lineEdit.text())*guanhou))+(0.003375*quechang**4/(double(self.ui.lineEdit.text())*guanhou)/(double(self.ui.lineEdit.text())*guanhou)))**0.5
+            if quechang*quechang <= 50*float(self.ui.lineEdit.text())*guanhou:
+                m = (1+(0.6275*quechang*quechang/(float(self.ui.lineEdit.text())*guanhou))+(0.003375*quechang**4/(float(self.ui.lineEdit.text())*guanhou)/(float(self.ui.lineEdit.text())*guanhou)))**0.5
             else:
-                m = 0.032*quechang*quechang/(double(self.ui.lineEdit.text())*guanhou)+3.3   
+                m = 0.032*quechang*quechang/(float(self.ui.lineEdit.text())*guanhou)+3.3   
             jiuhuanxiang = (qufu+68.95)*((1-0.85*junyun/guanhou)/(1-0.85*junyun/guanhou*m**(-1)))/2
 
             self.ui.lineEdit_26.setText(str(jiuzhouxiang))
@@ -297,7 +298,7 @@ class Stats:
             self.ui.lineEdit_44.setText(str(jiuhuanxiang))
 
             #内衬轴向应力计算
-            neizhouxiang = 1000*double(self.ui.lineEdit_34.text())*double(self.ui.lineEdit_2.text())*8000*double(self.ui.lineEdit.text())/(math.pi*(double(self.ui.lineEdit.text())**4-(double(self.ui.lineEdit.text())-2*double(self.ui.lineEdit_35.text()))**4))
+            neizhouxiang = 1000*float(self.ui.lineEdit_34.text())*float(self.ui.lineEdit_2.text())*8000*float(self.ui.lineEdit.text())/(math.pi*(float(self.ui.lineEdit.text())**4-(float(self.ui.lineEdit.text())-2*float(self.ui.lineEdit_35.text()))**4))
             #内衬环向应力计算
             neihuanxiang = neimo*huanying/1.5
 
@@ -317,8 +318,8 @@ class Stats:
         else:
             #轴向裂纹计算
             if self.ui.buttonGroup_2.checkedButton().text() == "轴向裂纹":
-                banchang = double(self.ui.lineEdit_31.text())
-                yinzi = banchang/(math.sqrt(1000*double(self.ui.lineEdit_10.text())*double(self.ui.lineEdit_12.text())))
+                banchang = float(self.ui.lineEdit_31.text())
+                yinzi = banchang/(math.sqrt(1000*float(self.ui.lineEdit_10.text())*float(self.ui.lineEdit_12.text())))
                 #Folias模型
                 frou_1 = 1/(math.sqrt(1+1.05*yinzi*yinzi))
                 #Erdogan模型
@@ -327,18 +328,18 @@ class Stats:
                 frou_3 = (2/math.sqrt(3))*(1/(math.sqrt(1+0.34*yinzi+1.24*yinzi*yinzi)))
 
                 frou = min(frou_1,frou_2,frou_3)
-                jiujixian = frou*double(self.ui.lineEdit_14.text())*double(self.ui.lineEdit_12.text())/(double(self.ui.lineEdit_10.text())*1000)
+                jiujixian = frou*float(self.ui.lineEdit_14.text())*float(self.ui.lineEdit_12.text())/(float(self.ui.lineEdit_10.text())*1000)
             #环向裂纹计算
             else:
-                jiaodu = double(self.ui.lineEdit_32.text())
+                jiaodu = float(self.ui.lineEdit_32.text())
                 #kanninen模型
-                jiujixian = 2*double(self.ui.lineEdit_14.text())*(math.pi - jiaodu/180 +2*(math.sin(math.sin(jiaodu/180)/2)))/(double(self.ui.lineEdit_10.text())*1000)
+                jiujixian = 2*float(self.ui.lineEdit_14.text())*(math.pi - jiaodu/180 +2*(math.sin(math.sin(jiaodu/180)/2)))/(float(self.ui.lineEdit_10.text())*1000)
             
             self.ui.lineEdit_49.setText(str(jiujixian))
             self.ui.lineEdit_38.setText(str(jiujixian))
 
             #内衬管极限承载力计算
-            neijixian = double(self.ui.lineEdit_14.text())*double(self.ui.lineEdit_35.text())/(double(self.ui.lineEdit_4.text())*(double(self.ui.lineEdit.text())-2*double(self.ui.lineEdit_35.text())))
+            neijixian = float(self.ui.lineEdit_14.text())*float(self.ui.lineEdit_35.text())/(float(self.ui.lineEdit_4.text())*(float(self.ui.lineEdit.text())-2*float(self.ui.lineEdit_35.text())))
 
             self.ui.lineEdit_50.setText(str(neijixian))
             

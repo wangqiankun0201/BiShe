@@ -10,11 +10,23 @@
     <height>836</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>管道喷涂承载力计算软件</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton {
+   <string notr="true">QLabel {font-family: &quot;Microsoft YaHei&quot;;
+font-size: 14px;
+font-style: italic;
+font-weight: bold;
+color: rgb(255, 170, 255);
+font: bold italic 18px &quot;Microsoft YaHei&quot;;}
+QPushButton {
  
 background:qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
 stop:0 rgba(199, 238, 249, 255), 
@@ -121,21 +133,24 @@ ui-&gt;comboBox-&gt;setView(new QListView());
     ui-&gt;comboBox-&gt;view()-&gt;window()-&gt;setCursor(Qt::PointingHandCursor);
 
 
+
+
  
 
 </string>
   </property>
-  <widget class="QTabWidget" name="tabWidget">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>10</y>
-     <width>861</width>
-     <height>801</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QTabBar::tab:hover{
+  <layout class="QVBoxLayout" name="verticalLayout_7">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+QTabBar::tab:hover{
 	
 	background-color: rgb(0, 255, 255);
 }
@@ -173,13 +188,14 @@ QGroupBox::indicator {
     height: 13px;
 }
 </string>
-   </property>
-   <property name="currentIndex">
-    <number>3</number>
-   </property>
-   <widget class="QWidget" name="tab">
-    <property name="styleSheet">
-     <string notr="true">QGroupBox {
+     </property>
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <property name="styleSheet">
+       <string notr="true">
+QGroupBox {
     /* 背景渐变色*/
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 #E0E0E0, stop: 1 #FFFFFF);
@@ -213,1626 +229,1375 @@ QGroupBox::indicator {
     height: 13px;
 }
 </string>
-    </property>
-    <attribute name="title">
-     <string>荷载计算</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>0</y>
-       <width>731</width>
-       <height>281</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="title">
-      <string>垂直土压力计算</string>
-     </property>
-     <widget class="QComboBox" name="comboBox">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>40</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
       </property>
-      <property name="currentText">
-       <string>沟埋式管道</string>
-      </property>
-      <property name="maxVisibleItems">
-       <number>9</number>
-      </property>
-      <property name="placeholderText">
-       <string/>
-      </property>
-      <item>
-       <property name="text">
-        <string>沟埋式管道</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>上埋式管道</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>121</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>管道埋地方式选择</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_13">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>180</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>管顶距地高度（m）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_10">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>110</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>230</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>填土内摩擦角（°）</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>回填土容重（kN/m³)</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_9">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>70</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_15">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>180</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_18">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>80</y>
-        <width>151</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>管侧土内摩擦角（°）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_16">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>180</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_17">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>130</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_18">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>230</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_21">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>80</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>沟槽水平宽度（m）</string>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>430</y>
-        <width>691</width>
-        <height>191</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>活荷载计算</string>
-      </property>
-      <widget class="QLabel" name="label_22">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>20</y>
-         <width>121</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>受压情况选择</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="radioButton_5">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>20</y>
-         <width>81</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>单轮</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="radioButton_6">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>20</y>
-         <width>115</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>两轮</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_19">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>80</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_23">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>110</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>管道外直径（m）</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_12">
-      <property name="geometry">
-       <rect>
-        <x>350</x>
-        <y>220</y>
-        <width>151</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>填土粘聚力（kPa）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_7">
-      <property name="geometry">
-       <rect>
-        <x>540</x>
-        <y>220</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>360</x>
-        <y>170</y>
-        <width>161</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>等沉面高（m）</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>290</y>
-       <width>711</width>
-       <height>131</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="title">
-      <string>地下水静液压力计算</string>
-     </property>
-     <widget class="QLineEdit" name="lineEdit_13">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>60</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>60</y>
-        <width>141</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>管顶地下水深（m）</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>70</y>
-        <width>161</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>真空压力（MPa）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
-      <property name="geometry">
-       <rect>
-        <x>520</x>
-        <y>70</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>420</y>
-       <width>711</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="title">
-      <string>活荷载计算</string>
-     </property>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>60</y>
-        <width>121</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>受压情况选择</string>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioButton_3">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>60</y>
-        <width>81</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>单轮</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup</string>
+      <attribute name="title">
+       <string>荷载计算</string>
       </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QGroupBox" name="groupBox">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="title">
+                <string>垂直土压力计算</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,5,1">
+                  <property name="leftMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>14</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>1</number>
+                  </property>
+                  <item alignment="Qt::AlignHCenter">
+                   <widget class="QLabel" name="label_9">
+                    <property name="text">
+                     <string>管道埋地方式选择</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBox">
+                    <property name="currentText">
+                     <string>沟埋式管道</string>
+                    </property>
+                    <property name="maxVisibleItems">
+                     <number>9</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string/>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>沟埋式管道</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>上埋式管道</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,2,1,2">
+                  <property name="spacing">
+                   <number>8</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_21">
+                    <property name="text">
+                     <string>沟槽水平宽度（m）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_19"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_18">
+                    <property name="text">
+                     <string>管侧土内摩擦角（°）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_9"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,2,1,2">
+                  <property name="topMargin">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_11">
+                    <property name="text">
+                     <string>回填土容重（kN/m³)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_17"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_23">
+                    <property name="text">
+                     <string>管道外直径（m）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_10"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,2,1,2">
+                  <property name="topMargin">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_13">
+                    <property name="text">
+                     <string>管顶距地高度（m）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_16"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_10">
+                    <property name="text">
+                     <string>等沉面高（m）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_15"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,2,1,2">
+                  <property name="topMargin">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_7">
+                    <property name="text">
+                     <string>填土内摩擦角（°）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_18"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_12">
+                    <property name="text">
+                     <string>填土粘聚力（kPa）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_7"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_2">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="title">
+                <string>地下水静液压力计算</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_6">
+                  <item>
+                   <widget class="QLabel" name="label_15">
+                    <property name="text">
+                     <string>管顶地下水深（m）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_13"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="text">
+                     <string>真空压力（MPa）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_3"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_3">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="title">
+                <string>活荷载计算</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_2">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <property name="topMargin">
+                   <number>14</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_16">
+                    <property name="text">
+                     <string>受压情况选择</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="radioButton_3">
+                    <property name="styleSheet">
+                     <string notr="true">
+QRadioButton
+{
+	font: 75 12pt &quot;微软雅黑&quot;;
+	background: transparent;
+	color:black;
+	border: none;
+}
+
+QRadioButton:disabled
+{	
+	color: gray;
+}
+
+QRadioButton::indicator 
+{
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+}
+ 
+QRadioButton::indicator:checked 
+{
+	width: 14px;
+    height: 14px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(4, 156, 232 ,255), stop:0.6 rgba(4, 156, 232 ,255),stop:0.65 rgba(255, 255, 255, 255), stop:0.8 rgba(255, 255, 255, 255), stop:0.85 rgba(4, 156, 232, 255), stop:1 rgba(4, 156, 232 ,255));
+    border: 1px solid rgb(4, 156, 232);
+	border-radius: 8px;
+}
+ 
+QRadioButton::indicator:unchecked 
+{
+    background-color: white;
+    border: 2px solid rgb(66, 66, 66);
+}
+
+QRadioButton::indicator:unchecked:disabled
+{
+    background-color: rgb(213, 213, 213);
+    border: 2px solid  rgb(200, 200, 200);
+}
+
+QRadioButton::indicator:checked:disabled 
+{
+	width: 14px;
+    height: 14px;
+	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 gray, stop:0.6 gray,stop:0.65 white, stop:0.8 white, stop:0.85 gray, stop:1 gray);
+    border: 1px solid gray;
+	border-radius: 8px;
+}
+</string>
+                    </property>
+                    <property name="text">
+                     <string>单轮</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">buttonGroup</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="radioButton_4">
+                    <property name="styleSheet">
+                     <string notr="true">
+QRadioButton
+{
+	font: 75 12pt &quot;微软雅黑&quot;;
+	background: transparent;
+	color:black;
+	border: none;
+}
+
+QRadioButton:disabled
+{	
+	color: gray;
+}
+
+QRadioButton::indicator 
+{
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+}
+ 
+QRadioButton::indicator:checked 
+{
+	width: 14px;
+    height: 14px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(4, 156, 232 ,255), stop:0.6 rgba(4, 156, 232 ,255),stop:0.65 rgba(255, 255, 255, 255), stop:0.8 rgba(255, 255, 255, 255), stop:0.85 rgba(4, 156, 232, 255), stop:1 rgba(4, 156, 232 ,255));
+    border: 1px solid rgb(4, 156, 232);
+	border-radius: 8px;
+}
+ 
+QRadioButton::indicator:unchecked 
+{
+    background-color: white;
+    border: 2px solid rgb(66, 66, 66);
+}
+
+QRadioButton::indicator:unchecked:disabled
+{
+    background-color: rgb(213, 213, 213);
+    border: 2px solid  rgb(200, 200, 200);
+}
+
+QRadioButton::indicator:checked:disabled 
+{
+	width: 14px;
+    height: 14px;
+	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 gray, stop:0.6 gray,stop:0.65 white, stop:0.8 white, stop:0.85 gray, stop:1 gray);
+    border: 1px solid gray;
+	border-radius: 8px;
+}
+</string>
+                    </property>
+                    <property name="text">
+                     <string>两轮</string>
+                    </property>
+                    <attribute name="buttonGroup">
+                     <string notr="true">buttonGroup</string>
+                    </attribute>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0,0,0,0">
+                  <property name="topMargin">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_26">
+                    <property name="text">
+                     <string>车轮单压标准值（kN）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_21"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_25">
+                    <property name="text">
+                     <string>动力系数</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_24"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <property name="topMargin">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_27">
+                    <property name="text">
+                     <string>车轮着地分布长度（m）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_23"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_28">
+                    <property name="text">
+                     <string>车轮的总数量</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_25"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_10">
+                  <property name="topMargin">
+                   <number>10</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_29">
+                    <property name="text">
+                     <string>车轮着地分布宽度（m）</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_22"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_24">
+                    <property name="text">
+                     <string>车轮净距</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_20"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <property name="topMargin">
+              <number>20</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>20</horstretch>
+                 <verstretch>20</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>计算荷载</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <widget class="QLabel" name="label_20">
+               <property name="text">
+                <string>竖向总荷载为（MPa）：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_34">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
-     <widget class="QRadioButton" name="radioButton_4">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>60</y>
-        <width>115</width>
-        <height>19</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>两轮</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup</string>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>内衬壁厚设计</string>
       </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="3,0">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>修复设计方式选择</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox_2">
+           <item>
+            <property name="text">
+             <string>半结构性修复设计</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>结构性修复设计</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>结构强度设计</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_15">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>内衬管外径（mm）</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>管侧土综合变形模量（MPa）</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_5"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_16">
+            <item>
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>内衬管长期变形模量（MPa）</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_8"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>内衬管短期变形模量（MPa）</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_6"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_17">
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>内衬管泊松比</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_4"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_18">
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>计算壁厚</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_19">
+         <item>
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>最小壁厚为（mm）：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_37">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_20">
+         <item>
+          <widget class="QLabel" name="label_40">
+           <property name="text">
+            <string>内衬壁厚取值为（mm）：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_35"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>涂料用量计算</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_21">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>管道长度（m）</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_2"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_22">
+         <item>
+          <widget class="QPushButton" name="pushButton_4">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>计算用量</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_23">
+         <item>
+          <widget class="QLabel" name="label_39">
+           <property name="text">
+            <string>涂料用量为（m³）：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_38">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_20">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>210</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>旧管道剩余强度计算</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_24" stretch="3,0">
+         <item>
+          <widget class="QLabel" name="label_41">
+           <property name="text">
+            <string>管道缺陷选择</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox_3">
+           <item>
+            <property name="text">
+             <string>腐蚀缺陷</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>裂纹缺陷</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_25">
+         <item>
+          <widget class="QLabel" name="label_35">
+           <property name="text">
+            <string>管道壁厚（mm）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_12"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_33">
+           <property name="text">
+            <string>环向抗拉应力（MPa）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_28"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_26">
+         <item>
+          <widget class="QLabel" name="label_36">
+           <property name="text">
+            <string>材料屈服应力（MPa）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_14"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>内衬长期环向应变（mm）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_27"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_27">
+         <item>
+          <widget class="QLabel" name="label_37">
+           <property name="text">
+            <string>缺陷长度（mm）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_29"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_45">
+           <property name="text">
+            <string>内衬弯曲模量（MPa）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_36"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_28">
+         <item>
+          <widget class="QLabel" name="label_32">
+           <property name="text">
+            <string>管道轴向作用荷载（kN）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_33"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_31">
+           <property name="text">
+            <string>当前均匀腐蚀壁厚（mm）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_11"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_29">
+         <item>
+          <widget class="QLabel" name="label_38">
+           <property name="text">
+            <string>裂纹形式选择</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_7">
+           <property name="styleSheet">
+            <string notr="true">
+QRadioButton
+{
+	font: 75 12pt &quot;微软雅黑&quot;;
+	background: transparent;
+	color:black;
+	border: none;
+}
+
+QRadioButton:disabled
+{	
+	color: gray;
+}
+
+QRadioButton::indicator 
+{
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+}
+ 
+QRadioButton::indicator:checked 
+{
+	width: 14px;
+    height: 14px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(4, 156, 232 ,255), stop:0.6 rgba(4, 156, 232 ,255),stop:0.65 rgba(255, 255, 255, 255), stop:0.8 rgba(255, 255, 255, 255), stop:0.85 rgba(4, 156, 232, 255), stop:1 rgba(4, 156, 232 ,255));
+    border: 1px solid rgb(4, 156, 232);
+	border-radius: 8px;
+}
+ 
+QRadioButton::indicator:unchecked 
+{
+    background-color: white;
+    border: 2px solid rgb(66, 66, 66);
+}
+
+QRadioButton::indicator:unchecked:disabled
+{
+    background-color: rgb(213, 213, 213);
+    border: 2px solid  rgb(200, 200, 200);
+}
+
+QRadioButton::indicator:checked:disabled 
+{
+	width: 14px;
+    height: 14px;
+	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 gray, stop:0.6 gray,stop:0.65 white, stop:0.8 white, stop:0.85 gray, stop:1 gray);
+    border: 1px solid gray;
+	border-radius: 8px;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>轴向裂纹</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup_2</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_8">
+           <property name="styleSheet">
+            <string notr="true">
+QRadioButton
+{
+	font: 75 12pt &quot;微软雅黑&quot;;
+	background: transparent;
+	color:black;
+	border: none;
+}
+
+QRadioButton:disabled
+{	
+	color: gray;
+}
+
+QRadioButton::indicator 
+{
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+}
+ 
+QRadioButton::indicator:checked 
+{
+	width: 14px;
+    height: 14px;
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(4, 156, 232 ,255), stop:0.6 rgba(4, 156, 232 ,255),stop:0.65 rgba(255, 255, 255, 255), stop:0.8 rgba(255, 255, 255, 255), stop:0.85 rgba(4, 156, 232, 255), stop:1 rgba(4, 156, 232 ,255));
+    border: 1px solid rgb(4, 156, 232);
+	border-radius: 8px;
+}
+ 
+QRadioButton::indicator:unchecked 
+{
+    background-color: white;
+    border: 2px solid rgb(66, 66, 66);
+}
+
+QRadioButton::indicator:unchecked:disabled
+{
+    background-color: rgb(213, 213, 213);
+    border: 2px solid  rgb(200, 200, 200);
+}
+
+QRadioButton::indicator:checked:disabled 
+{
+	width: 14px;
+    height: 14px;
+	background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 gray, stop:0.6 gray,stop:0.65 white, stop:0.8 white, stop:0.85 gray, stop:1 gray);
+    border: 1px solid gray;
+	border-radius: 8px;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>环向裂纹</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroup_2</string>
+           </attribute>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_30">
+         <item>
+          <widget class="QLabel" name="label_43">
+           <property name="text">
+            <string>裂纹半长（mm）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_31"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_31">
+         <item>
+          <widget class="QLabel" name="label_44">
+           <property name="text">
+            <string>裂纹开裂角度（°）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_32"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_32">
+         <item>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>开始计算</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_33">
+         <item>
+          <widget class="QLabel" name="label_34">
+           <property name="text">
+            <string>旧管道轴向应力为（MPa）：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_26">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_46">
+           <property name="text">
+            <string>旧管道环向应力为（MPa）：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_30">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_34">
+         <item>
+          <widget class="QLabel" name="label_42">
+           <property name="text">
+            <string>旧管道极限承载力为（MPa）：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_39">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
-     <widget class="QLabel" name="label_24">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>210</y>
-        <width>71</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>车轮净距</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_21">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>100</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_25">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>100</y>
-        <width>71</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>动力系数</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_26">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>100</y>
-        <width>151</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>车轮单压标准值（kN）</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_27">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>160</y>
-        <width>161</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>车轮着地分布长度（m）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_22">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>210</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_23">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>160</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_24">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>100</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_25">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>160</y>
-        <width>81</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_28">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>160</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>车轮的总数量</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_29">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>210</y>
-        <width>161</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>车轮着地分布宽度（m）</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QPushButton" name="pushButton">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>690</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>计算荷载</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_20">
-     <property name="geometry">
-      <rect>
-       <x>480</x>
-       <y>710</y>
-       <width>151</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>竖向总荷载为（MPa）：</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_34">
-     <property name="geometry">
-      <rect>
-       <x>650</x>
-       <y>710</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>内衬壁厚设计</string>
-    </attribute>
-    <widget class="QComboBox" name="comboBox_2">
-     <property name="geometry">
-      <rect>
-       <x>420</x>
-       <y>21</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>半结构性修复设计</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>结构性修复设计</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>30</y>
-       <width>151</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>修复设计方式选择</string>
-     </property>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>60</y>
-       <width>611</width>
-       <height>311</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>结构强度设计</string>
-     </property>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>80</y>
-        <width>121</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬管外径（mm）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>80</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>200</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>200</y>
-        <width>101</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬管泊松比</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>90</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>90</y>
-        <width>191</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>管侧土综合变形模量（MPa）</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>150</y>
-        <width>191</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬管短期变形模量（MPa）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>150</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_8">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>150</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_19">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>150</y>
-        <width>191</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬管长期变形模量（MPa）</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QGroupBox" name="groupBox_6">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>540</y>
-       <width>611</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>涂料用量计算</string>
-     </property>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>50</y>
-        <width>121</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>管道长度（m）</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>50</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>390</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>计算壁厚</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_40">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>490</y>
-       <width>171</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>内衬壁厚取值为（mm）：</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_35">
-     <property name="geometry">
-      <rect>
-       <x>390</x>
-       <y>490</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_14">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>430</y>
-       <width>141</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>最小壁厚为（mm）：</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_37">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>430</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_39">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>700</y>
-       <width>141</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>涂料用量为（m³）：</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_38">
-     <property name="geometry">
-      <rect>
-       <x>390</x>
-       <y>700</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_4">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>650</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>计算用量</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_5">
-    <attribute name="title">
-     <string>旧管道剩余强度计算</string>
-    </attribute>
-    <widget class="QLabel" name="label_31">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>310</y>
-       <width>201</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>当前均匀腐蚀壁厚（mm）</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_32">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>310</y>
-       <width>201</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>管道轴向作用荷载（kN）</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_33">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>120</y>
-       <width>201</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>环向抗拉应力（MPa）</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_35">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>110</y>
-       <width>201</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>管道壁厚（mm）</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_36">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>180</y>
-       <width>201</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>材料屈服应力（MPa）</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_37">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>230</y>
-       <width>201</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>缺陷长度（mm）</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_11">
-     <property name="geometry">
-      <rect>
-       <x>550</x>
-       <y>310</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_12">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>110</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_14">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>170</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_27">
-     <property name="geometry">
-      <rect>
-       <x>560</x>
-       <y>180</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_28">
-     <property name="geometry">
-      <rect>
-       <x>550</x>
-       <y>120</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_29">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>240</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>600</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>开始计算</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_41">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>30</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>管道缺陷选择</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox_3">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>20</y>
-       <width>121</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>腐蚀缺陷</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>裂纹缺陷</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLabel" name="label_43">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>480</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>裂纹半长（mm）</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_44">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>540</y>
-       <width>151</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>裂纹开裂角度（°）</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_31">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>480</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_32">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>530</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioButton_7">
-     <property name="geometry">
-      <rect>
-       <x>390</x>
-       <y>390</y>
-       <width>115</width>
-       <height>19</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>轴向裂纹</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_2</string>
-     </attribute>
-    </widget>
-    <widget class="QRadioButton" name="radioButton_8">
-     <property name="geometry">
-      <rect>
-       <x>520</x>
-       <y>390</y>
-       <width>115</width>
-       <height>19</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>环向裂纹</string>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">buttonGroup_2</string>
-     </attribute>
-    </widget>
-    <widget class="QLabel" name="label_38">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>390</y>
-       <width>101</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>裂纹形式选择</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_45">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>240</y>
-       <width>151</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>内衬弯曲模量（MPa）</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_36">
-     <property name="geometry">
-      <rect>
-       <x>550</x>
-       <y>240</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>180</y>
-       <width>181</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>内衬长期环向应变（mm）</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_33">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>310</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_34">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>660</y>
-       <width>201</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>旧管道轴向应力为（MPa）：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_46">
-     <property name="geometry">
-      <rect>
-       <x>390</x>
-       <y>660</y>
-       <width>211</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>旧管道环向应力为（MPa）：</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_26">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>660</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_30">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>660</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_42">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>700</y>
-       <width>211</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>旧管道极限承载力为（MPa）：</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_39">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>700</y>
-       <width>113</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_6">
-    <attribute name="title">
-     <string>复合管道强度计算</string>
-    </attribute>
-    <widget class="QGroupBox" name="groupBox_7">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>0</y>
-       <width>751</width>
-       <height>571</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>计算结果一览表</string>
-     </property>
-     <widget class="QLabel" name="label_30">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>60</y>
-        <width>181</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>竖向总荷载为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_40">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>60</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_47">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>110</y>
-        <width>171</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬壁厚取值为（mm）：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_48">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>160</y>
-        <width>141</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>涂料用量为（m³）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_41">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>110</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_42">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>160</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_49">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>60</y>
-        <width>201</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>旧管道轴向应力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_43">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>60</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_50">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>110</y>
-        <width>201</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>旧管道环向应力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_44">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>110</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_45">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>210</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_51">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>210</y>
-        <width>201</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬管环向应力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_46">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>160</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_52">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>160</y>
-        <width>201</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬管轴向应力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_47">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>300</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_48">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>250</y>
-        <width>113</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_53">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>250</y>
-        <width>201</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>复合管轴向应力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_54">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>300</y>
-        <width>201</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>复合管环向应力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_55">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>210</y>
-        <width>211</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>旧管道极限承载力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_49">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>210</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_50">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>250</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_56">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>250</y>
-        <width>211</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>内衬管极限承载力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_57">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>310</y>
-        <width>211</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>复合管极限承载力为（MPa）：</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_51">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>300</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
+     <widget class="QWidget" name="tab_6">
+      <attribute name="title">
+       <string>复合管道强度计算</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_13">
+       <item>
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>计算结果一览表</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_12">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_35">
+            <item>
+             <widget class="QLabel" name="label_30">
+              <property name="text">
+               <string>竖向总荷载为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_40">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_49">
+              <property name="text">
+               <string>旧管道轴向应力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_43">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_36">
+            <item>
+             <widget class="QLabel" name="label_47">
+              <property name="text">
+               <string>内衬壁厚取值为（mm）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_41">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_50">
+              <property name="text">
+               <string>旧管道环向应力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_44">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_37">
+            <item>
+             <widget class="QLabel" name="label_48">
+              <property name="text">
+               <string>涂料用量为（m³）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_42">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_52">
+              <property name="text">
+               <string>内衬管轴向应力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_46">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_38">
+            <item>
+             <widget class="QLabel" name="label_55">
+              <property name="text">
+               <string>旧管道极限承载力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_49">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_51">
+              <property name="text">
+               <string>内衬管环向应力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_45">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_39">
+            <item>
+             <widget class="QLabel" name="label_56">
+              <property name="text">
+               <string>内衬管极限承载力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_50">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_53">
+              <property name="text">
+               <string>复合管轴向应力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_48">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_40">
+            <item>
+             <widget class="QLabel" name="label_57">
+              <property name="text">
+               <string>复合管极限承载力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_51">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_54">
+              <property name="text">
+               <string>复合管环向应力为（MPa）：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_47">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_41">
+         <item>
+          <widget class="QPushButton" name="pushButton_5">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+             <horstretch>13</horstretch>
+             <verstretch>1</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>导出</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>610</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>导出</string>
-     </property>
-    </widget>
-   </widget>
-  </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
