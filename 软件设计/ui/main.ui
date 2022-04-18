@@ -225,7 +225,7 @@ QGroupBox::indicator {
 </string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <property name="styleSheet">
@@ -714,7 +714,7 @@ QRadioButton::indicator:checked:disabled
                   <item>
                    <widget class="QLabel" name="label_24">
                     <property name="text">
-                     <string>车轮净距</string>
+                     <string>车轮净距(m)</string>
                     </property>
                    </widget>
                   </item>
@@ -795,8 +795,17 @@ QRadioButton::indicator:checked:disabled
       <layout class="QVBoxLayout" name="verticalLayout_10">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="3,0">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>修复设计方式选择</string>
            </property>
@@ -1637,7 +1646,7 @@ QRadioButton::indicator:checked:disabled
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_2"/>
   <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_2"/>
  </buttongroups>
 </ui>

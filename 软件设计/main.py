@@ -101,25 +101,28 @@ class Stats:
         zhenkong = float(self.ui.lineEdit_3.text())
         #根据埋地方式选择土压力计算方法
         if self.ui.comboBox.currentText() == "沟埋式管道":
-            tu_1 = (rongzhong*goucaokuan*goucaokuan/(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)))* \
-            (1-math.e**(-2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)*tushen/goucaokuan))
-            tu_2 =(guanjing*(1+math.tan(45-cejiao/2)))*rongzhong*guanjing*(1-math.e**(-2*0.9*tushen/(guanjing*(1+math.tan(45-cejiao/2)))))/1.8
-            tuyali = max(tu_1,tu_2)
+           k =(math.tan((45-tianjiao/2)/180*math.pi))**2
+           f = math.tan(cejiao/180*math.pi)
+           tu_1 = rongzhong*goucaokuan*goucaokuan/(2*k*f)*(1-math.e**(-2*k*f*tushen/goucaokuan))/1000
+           b = guanjing*(1+math.tan((45-cejiao/2)/180*math.pi))
+           c = (1-math.e**(-2*0.9*tushen/b))/1.8
+           tu_2 = c*b*rongzhong*guanjing/1000
+           tuyali = max(tu_1,tu_2)
         else:
             dengchen = float(self.ui.lineEdit_15.text())
             nianju = float(self.ui.lineEdit_7.text())
             if tushen <= dengchen:
-                tu_1 = (rongzhong*guanjing*guanjing/(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)))*(math.e**(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)*tushen/guanjing)-1)
-                tu_2 = rongzhong*tushen*guanjing + rongzhong*tushen*tushen*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2) + 2*nianju*(1-2*math.sqrt(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2))*tushen
-                tu_3 =(guanjing*(1+math.tan(45-cejiao/2)))*rongzhong*guanjing*(1-math.e**(-2*0.9*tushen/(guanjing*(1+math.tan(45-cejiao/2)))))/1.8
+                tu_1 = (rongzhong*guanjing*guanjing/(2*(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2)))*(math.e**(2*(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2)*tushen/guanjing)-1)/1000
+                tu_2 = rongzhong*tushen*guanjing + rongzhong*tushen*tushen*(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2) + 2*nianju*(1-2*math.sqrt(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2))*tushen/1000
+                tu_3 =(guanjing*(1+math.tan((45-cejiao/2)/180*math.pi)))*rongzhong*guanjing*(1-math.e**(-2*0.9*tushen/(guanjing*(1+math.tan((45-cejiao/2)/180*math.pi)))))/1800
                 tuyali = max(tu_1,tu_2,tu_3)
             else:
-                tu_1 = (rongzhong*guanjing*guanjing/(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)))(math.e**((2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2))*tushen/guanjing)-1)+rongzhong*guanjing*(tushen-dengchen)*(math.e**(2*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)*dengchen/guanjing))
-                tu_2 = rongzhong*tushen*guanjing+rongzhong*(2*tushen-dengchen)*dengchen*(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2)+ 2*nianju*(1-2*math.sqrt(math.tan(cejiao/180))*((math.tan(45-tianjiao/2))**2))*dengchen
-                tu_3 =(guanjing*(1+math.tan(45-cejiao/2)))*rongzhong*guanjing*(1-math.e**(-2*0.9*tushen/(guanjing*(1+math.tan(45-cejiao/2)))))/1.8
+                tu_1 = (rongzhong*guanjing*guanjing/(2*(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2)))(math.e**((2*(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2))*tushen/guanjing)-1)+rongzhong*guanjing*(tushen-dengchen)*(math.e**(2*(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2)*dengchen/guanjing))
+                tu_2 = rongzhong*tushen*guanjing+rongzhong*(2*tushen-dengchen)*dengchen*(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2)+ 2*nianju*(1-2*math.sqrt(math.tan(cejiao/180*math.pi))*((math.tan((45-tianjiao/2)/180*math.pi))**2))*dengchen
+                tu_3 =(guanjing*(1+math.tan((45-cejiao/2)/180*math.pi)))*rongzhong*guanjing*(1-math.e**(-2*0.9*tushen/(guanjing*(1+math.tan((45-cejiao/2)/180*math.pi)))))/1.8
                 tuyali = max(tu_1,tu_2,tu_3)
         #计算静液压力
-        jingye = 0.0981*shuishen
+        jingye = 0.00981*shuishen
         
         # 计算活荷载
         if self.ui.buttonGroup.checkedButton().text() == "单轮":
@@ -128,24 +131,20 @@ class Stats:
             zongliang = float(self.ui.lineEdit_25.text())
             jingju = float(self.ui.lineEdit_20.text())
             cheya = (danya*dongli*zongliang)/((chechang+1.4*tushen)*(zongliang*chekuan+(zongliang-1)*jingju+1.4*tushen))/1000
-        
-        zongyali = tuyali + jingye +cheya + zhenkong + 10
+
+        zongyali = tuyali + jingye +cheya + zhenkong + 0.01
         self.ui.lineEdit_34.setText(str(zongyali))
 
     #修复设计方式选择
     def neiChen(self):
         if self.ui.comboBox_2.currentText() == "结构性修复设计":
-            self.ui.label_6.setVisible(False)
             self.ui.label_8.setVisible(True)
             self.ui.label_17.setVisible(True)
-            self.ui.lineEdit_4.setVisible(False)
             self.ui.lineEdit_5.setVisible(True)
             self.ui.lineEdit_6.setVisible(True)
         else:
-            self.ui.label_6.setVisible(True)
             self.ui.label_8.setVisible(False)
             self.ui.label_17.setVisible(False)
-            self.ui.lineEdit_4.setVisible(True)
             self.ui.lineEdit_5.setVisible(False)
             self.ui.lineEdit_6.setVisible(False)
     #内衬壁厚设计
@@ -161,7 +160,11 @@ class Stats:
         else:
             duanqi = float(self.ui.lineEdit_6.text())
             zonghe = float(self.ui.lineEdit_5.text())
-            zuixiao = 0.721*neijing*(((2*float(self.ui.lineEdit_34.text()))**2)/(changqi*(1-0.33*float(self.ui.lineEdit_13.text())/float(self.ui.lineEdit_16.text()))*zonghe*(1/(1+4*math.e**(-0.213*float(self.ui.lineEdit_16.text()))))))**(1/3)
+            qt = float(self.ui.lineEdit_34.text())
+            rw = 1-0.33*float(self.ui.lineEdit_13.text())/float(self.ui.lineEdit_16.text())
+            bb = 1/(1+4*math.e**(-0.213*float(self.ui.lineEdit_16.text())))
+            zuixiao = 0.721*neijing*(4*qt*qt/(changqi*rw*bb*zonghe))**(1/3)
+            # zuixiao = 0.721*neijing*(((2*float(self.ui.lineEdit_34.text()))**2)/(changqi*(1-0.33*float(self.ui.lineEdit_13.text())/float(self.ui.lineEdit_16.text()))*zonghe*(1/(1+4*math.e**(-0.213*float(self.ui.lineEdit_16.text()))))))**(1/3)
             if zuixiao >= (0.1970*neijing/(duanqi)**(1/3)):
                 self.ui.lineEdit_37.setText(str(zuixiao))
             else:
@@ -284,7 +287,11 @@ class Stats:
             neimo = float(self.ui.lineEdit_36.text())
             junyun = float(self.ui.lineEdit_11.text())
             #旧管道轴向应力计算
-            jiuzhouxiang = (1*float(self.ui.lineEdit.text())/(4*junyun))*(huankang*2*guanhou/(float(self.ui.lineEdit_10.text())-guanhou))+(float(self.ui.lineEdit_4.text())*zhouhe/(math.pi*float(self.ui.lineEdit.text())*junyun))*1000
+            # jiuzhouxiang = (1*float(self.ui.lineEdit.text())/(4*junyun))*(huankang*2*guanhou/(float(self.ui.lineEdit_10.text())-guanhou))+(float(self.ui.lineEdit_4.text())*zhouhe/(math.pi*float(self.ui.lineEdit.text())*junyun))*1000
+            p = float(self.ui.lineEdit_28.text())*2*float(self.ui.lineEdit_12.text())/(float(self.ui.lineEdit.text()))
+            jiuzhouxiang= p*float(self.ui.lineEdit.text())/4/float(self.ui.lineEdit_11.text())+(float(self.ui.lineEdit_4.text())*float(self.ui.lineEdit_33.text())/math.pi/float(self.ui.lineEdit.text())/float(self.ui.lineEdit_11.text()))*1000
+            print(p)
+            print(jiuzhouxiang)
             #旧管道环向应力计算
             if quechang*quechang <= 50*float(self.ui.lineEdit.text())*guanhou:
                 m = (1+(0.6275*quechang*quechang/(float(self.ui.lineEdit.text())*guanhou))+(0.003375*quechang**4/(float(self.ui.lineEdit.text())*guanhou)/(float(self.ui.lineEdit.text())*guanhou)))**0.5
@@ -333,7 +340,7 @@ class Stats:
             else:
                 jiaodu = float(self.ui.lineEdit_32.text())
                 #kanninen模型
-                jiujixian = 2*float(self.ui.lineEdit_14.text())*(math.pi - jiaodu/180 +2*(math.sin(math.sin(jiaodu/180)/2)))/(float(self.ui.lineEdit_10.text())*1000)
+                jiujixian = 2*float(self.ui.lineEdit_14.text())*(math.pi - jiaodu/180*math.pi +2*(math.sin(math.sin(jiaodu/180*math.pi)/2)))/(float(self.ui.lineEdit_10.text())*1000)
             
             self.ui.lineEdit_49.setText(str(jiujixian))
             self.ui.lineEdit_38.setText(str(jiujixian))
