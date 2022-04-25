@@ -45,6 +45,10 @@ class Stats:
         self.ui.lineEdit_49.setVisible(False)
         self.ui.lineEdit_50.setVisible(False)
         self.ui.lineEdit_51.setVisible(False)
+        self.ui.lineEdit_52.setVisible(False)
+        self.ui.lineEdit_53.setVisible(False)
+        self.ui.label_22.setVisible(False)
+        self.ui.label_58.setVisible(False)
         
         
         #设置信号
@@ -223,6 +227,10 @@ class Stats:
             self.ui.lineEdit_46.setVisible(True)
             self.ui.lineEdit_47.setVisible(True)
             self.ui.lineEdit_48.setVisible(True)
+            self.ui.lineEdit_52.setVisible(False)
+            self.ui.lineEdit_53.setVisible(False)
+            self.ui.label_22.setVisible(False)
+            self.ui.label_58.setVisible(False)
         else:
             self.ui.label_38.setVisible(True)
             self.ui.radioButton_7.setVisible(True)
@@ -263,6 +271,10 @@ class Stats:
             self.ui.label_52.setVisible(False)
             self.ui.label_53.setVisible(False)
             self.ui.label_54.setVisible(False)
+            self.ui.lineEdit_52.setVisible(True)
+            self.ui.lineEdit_53.setVisible(True)
+            self.ui.label_22.setVisible(True)
+            self.ui.label_58.setVisible(True)
 
             if self.ui.buttonGroup_2.checkedButton().text() == "轴向裂纹":
                 self.ui.label_44.setVisible(False)
@@ -331,16 +343,14 @@ class Stats:
                 frou_1 = 1/(math.sqrt(1+1.05*yinzi*yinzi))
                 #Erdogan模型
                 frou_2 = 1/(0.614+0.87542*yinzi+0.386*math.e**(-2.275*yinzi))
-                #Kim模型
-                frou_3 = (2/math.sqrt(3))*(1/(math.sqrt(1+0.34*yinzi+1.24*yinzi*yinzi)))
 
-                frou = min(frou_1,frou_2,frou_3)
-                jiujixian = frou*float(self.ui.lineEdit_14.text())*float(self.ui.lineEdit_12.text())/(float(self.ui.lineEdit_10.text())*1000)
+                frou = min(frou_1,frou_2)
+                jiujixian = float(self.ui.lineEdit_53.text())*float(self.ui.lineEdit_53.text())*frou
             #环向裂纹计算
             else:
                 jiaodu = float(self.ui.lineEdit_32.text())
                 #kanninen模型
-                jiujixian = 2*float(self.ui.lineEdit_14.text())*(math.pi - jiaodu/180*math.pi +2*(math.sin(math.sin(jiaodu/180*math.pi)/2)))/(float(self.ui.lineEdit_10.text())*1000)
+                jiujixian = 4*float(self.ui.lineEdit_52.text())*float(self.ui.lineEdit_53.text())*(math.pi-jiaodu/180*math.pi+2/(math.sin(math.sin(jiaodu/180*math.pi)/2)))/math.pi
             
             self.ui.lineEdit_49.setText(str(jiujixian))
             self.ui.lineEdit_38.setText(str(jiujixian))

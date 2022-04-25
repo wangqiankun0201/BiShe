@@ -1294,6 +1294,30 @@ QRadioButton::indicator:checked:disabled
         </layout>
        </item>
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_43">
+         <item>
+          <widget class="QLabel" name="label_58">
+           <property name="text">
+            <string>配筋的屈服强度（MPa）</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_52"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_22">
+           <property name="text">
+            <string>环向配筋率换算系数</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_53"/>
+         </item>
+        </layout>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_30">
          <item>
           <widget class="QLabel" name="label_43">
@@ -1646,7 +1670,7 @@ QRadioButton::indicator:checked:disabled
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>
